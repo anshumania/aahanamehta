@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Aahana Mehta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/fonts/stylesheet.css" rel="stylesheet" type="text/css" charset="utf-8">
+
+  </head>
+
+  <body>
+
+    <div id="navbar-navigation"></div>
+
+    <div class="container" style="min-height: 75vh;"">
+      <div class="row">
+        <div id="loginbox" class="form-signin" style="margin-top: 20%;">
+          <h2 class="form-signin-heading samarkan text-center">Please sign in</h2>
+          <input id="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <button id="loginbutton" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <p id="wrongPassword" style="display: none">wrong password</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; aahanamehta.ca <script type="text/javascript">document.write(new Date().getFullYear())</script></p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/sha1.js"></script>
+    <script>
+         "use strict";
+     
+
+    function loadPage(pwd) {
+        
+        var hash= pwd;
+        hash= Sha1.hash(pwd);
+        var url= hash + "/blog.html";
+            
+        $.ajax({
+            url : url,
+            dataType : "html",
+            success : function(data) {
+                window.location= url;
+            },
+            error : function(xhr, ajaxOptions, thrownError) {
+            
+                parent.location.hash= hash;
+                //$("#wrongPassword").show();
+                $("#password").attr("placeholder","wrong password");
+                $("#password").val("");
+            }
+        });
+    }
+
+    $('#navbar-navigation').load("nav-bar.html");
+     
+    $("#loginbutton").on("click", function() {
+        loadPage($("#password").val());
+    });
+    $("#password").keypress(function(e) {
+        if (e.which == 13) {
+            
+            loadPage($("#password").val());
+        }
+    });
+    $("#password").focus();
+
+    </script>
+
+  </body>
+
+</html>
