@@ -35,7 +35,8 @@
       <div class="row">
         <div id="loginbox" class="form-signin" style="margin-top: 20%;">
           <h2 class="form-signin-heading samarkan text-center">Please sign in</h2>
-          <input id="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <input id="password" type="password" id="inputPassword" class="form-control" placeholder="Password:aahanamehta" required>
+          <button class="btn btn-default btn-sm btn-block" id="reveal" data-toggle="tooltip" title="Click to reveal">reveal password</button>
           <button id="loginbutton" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
           <p id="wrongPassword" style="display: none">wrong password</p>
         </div>
@@ -91,6 +92,25 @@
         }
     });
     $("#password").focus();
+
+     $("#reveal").click(function() {
+        var parts = ["mehta", "aahana"];
+        var reveal = parts[1] + parts[0];
+        $("#reveal").html(reveal);
+     });
+
+    $(addExpiresToHead);
+    function addExpiresToHead() {
+      var expiresDate = addDays( new Date(), 1).toUTCString();
+      $("head").prepend('<META http-equiv="Expires" content="' + expiresDate + '">')
+    }
+    function addDays(date, days) {
+     var result = new Date(date);
+     result.setDate(result.getDate() + days);
+     return result;
+    }
+
+    </script>
 
     </script>
 

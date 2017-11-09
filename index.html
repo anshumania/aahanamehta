@@ -180,6 +180,16 @@
         var email = parts[1] + parts[0] + parts[4] + parts[3] + parts[5] + parts[2];
         $("#email").html('<a href="mailto:' + email +'">' + email + '</a>');
      });
+    $(addExpiresToHead);
+    function addExpiresToHead() {
+      var expiresDate = addDays( new Date(), 1).toUTCString();
+      $("head").prepend('<META http-equiv="Expires" content="' + expiresDate + '">')
+    }
+    function addDays(date, days) {
+     var result = new Date(date);
+     result.setDate(result.getDate() + days);
+     return result;
+    }
 
 
     </script>

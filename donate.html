@@ -81,6 +81,16 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
      $('#navbar-navigation').load("nav-bar.html");
+     $(addExpiresToHead);
+     function addExpiresToHead() {
+        var expiresDate = addDays( new Date(), 1).toUTCString();
+        $("head").prepend('<META http-equiv="Expires" content="' + expiresDate + '">')
+      }
+     function addDays(date, days) {
+       var result = new Date(date);
+       result.setDate(result.getDate() + days);
+       return result;
+      }
     </script>
 
   </body>
