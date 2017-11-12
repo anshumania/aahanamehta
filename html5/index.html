@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Aahana Mehta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/modern-business.css" rel="stylesheet">
+    <link href="../../css/fonts/stylesheet.css" rel="stylesheet" type="text/css" charset="utf-8">
+
+  </head>
+
+  <body>
+
+    <div id="navbar-navigation"></div>
+    <!-- <iframe src='http://aahanamehta.blogspot.ca/' frameborder='0' width='100' height='100vh' scrolling='yes'></iframe> -->
+<div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <a href="http://online.focusky.com/chxq/acbj/">anshuman-focusky</a>
+            <a href="http://online.focusky.com/chxq/yjgf/">indu-focusky</a>
+            <a href="html5/aahana.html">anshuman-html5</a>
+            <ul class="list-group">
+            <li class="list-group-item"><a href="http://online.focusky.com/chxq/acbj/">Anshuman-focusky</a></li>
+            <li class="list-group-item"><a href="http://online.focusky.com/chxq/yjgf/">Indu-focusky</a></li>
+            <li class="list-group-item"><a href="aahana.html">Anshuman-html5</a></li>
+          </ul>
+        </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+         <p class="m-0 text-center text-white">Copyright &copy; aahanamehta.ca <script type="text/javascript">document.write(new Date().getFullYear())</script></p>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+     $('#navbar-navigation').load("../nav-bar.html");
+     $(function() {
+      $("#navbar-navigation a").each(function (index, value){
+            var ohref = $(this).attr('href');
+            $(this).attr('href', '../'+ ohref);
+            });   
+      $("#aicon").attr('src', '../' + $("#aicon").attr('src'));
+     });
+    $(addExpiresToHead);
+    function addExpiresToHead() {
+      var expiresDate = addDays( new Date(), 1).toUTCString();
+      $("head").prepend('<META http-equiv="Expires" content="' + expiresDate + '">')
+    }
+    function addDays(date, days) {
+     var result = new Date(date);
+     result.setDate(result.getDate() + days);
+     return result;
+    }
+     
+    </script>
+
+  </body>
+
+</html>
